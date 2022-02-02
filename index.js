@@ -6,7 +6,10 @@ import {
   StyleSheet,
   ActivityIndicator,
   TextInput,
+  ScrollView,
+  StatusBar,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 function Button({ children, theme, style, onPress, title, progress, mode }) {
   const { primary, textLight, white } = theme;
@@ -34,7 +37,11 @@ function Button({ children, theme, style, onPress, title, progress, mode }) {
     </TouchableOpacity>
   );
 }
-
+function Br() {
+  return (
+    <View style={css.br}></View>
+  )
+}
 function Input({
   hint,
   width,
@@ -84,6 +91,20 @@ function Input({
     </>
   );
 }
+function Screen({ children, theme }) {
+  return (
+    <>
+      <StatusBar height={StatusBar.currentHeight} backgroundColor={theme.statusBar !== undefined ? theme.statusBar : theme.primary !== undefined ? theme.primary : "#000000"} />
+      <SafeAreaView style={css.flex}>
+        <ScrollView style={css.flex}>
+          <View style={css.flex}>
+            {children}
+          </View>
+        </ScrollView>
+      </SafeAreaView>
+    </>
+  );
+}
 function Heading({ children, size }) {
   return (
     <Text style={[css.heading, { fontSize: size == undefined ? 30 : size }]}>
@@ -105,9 +126,7 @@ function Card({ children, size }) {
     </View>
   );
 }
-const Madhyasth = {Button, Input, Heading, P, Card};
-export default Madhyasth;
-export {};
+export { Button, Input, Heading, P, Card, Br, Screen };
 
 const css = StyleSheet.create({
   primaryBtn: {
@@ -131,6 +150,7 @@ const css = StyleSheet.create({
   },
   textInput: {
     padding: 0,
+    width: "100%"
   },
   textInputprnt: {
     marginTop: 20,
@@ -152,4 +172,11 @@ const css = StyleSheet.create({
     lineHeight: 25,
     marginTop: 10
   },
+  br: {
+    width: "100%",
+    height: 8
+  },
+  flex: {
+    flex: 1
+  }
 });
