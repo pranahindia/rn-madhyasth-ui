@@ -1,3 +1,7 @@
+# Madhyasth UI
+![unscrolled image](https://github.com/pranahindia/assets/blob/main/273121655_147771440958452_837880474247265839_n.jpg?raw=true)
+![scrolled image](https://github.com/pranahindia/assets/blob/main/259448245_928867141164666_2153529250027613575_n.jpg?raw=true)
+
 ## Installation
 ```bash
     npm i madhyasth-ui
