@@ -1,3 +1,12 @@
+## Installation
+```bash
+    npm i madhyasth-ui
+```
+and `import` package by following code
+
+```javascript
+    import {Card, Button, P, Heading, Input, Br, Screen} from 'madhyasth-ui';
+```
 
 ## Usage/Examples
 ### Theming
@@ -88,4 +97,28 @@ Example
     <Heading size={25}>How Are you?</Heading>
     <P>Expecting that you are completely fine!</P>
 </Card>
+```
+### Br
+Just adds vertical space of `8px`
+Example
+```javascript
+    <Br />
+```
+
+### Screen
+Sets up `StatusBar`, `ScrollView`, `SafeAreaView` for Stand Alone app.
+```javascript
+    import React from 'react;
+    import {Screen, Heading, P} from 'madhyasth-ui';
+    const Theme = {
+        statusBar: "red"
+    }
+    function App(){
+        return(
+            <Screen theme={Theme}>
+                <Heading>Hello</Heading>
+                <P>How are you?</P>
+            </Screen>
+        );
+    }
 ```
